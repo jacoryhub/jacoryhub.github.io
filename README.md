@@ -4,10 +4,10 @@
 
 ## 快速部署
 
-1. 当前仓库为 [`jacoryhub/roothide-repo`](https://github.com/jacoryhub/roothide-repo)，源码位于 `main` 分支。
+1. 当前仓库为 [`jacoryhub/jacoryhub.github.io`](https://github.com/jacoryhub/jacoryhub.github.io)，源码位于 `main` 分支。
 2. 在仓库 **Settings → Pages → Build and deployment** 中选择 **GitHub Actions**。
 3. 等待 `Build and deploy repository` 工作流完成。仓库地址通常是：
-   `https://jacoryhub.github.io/roothide-repo/`
+   `https://jacoryhub.github.io/`
 4. 在 Sileo/Zebra 中添加这个地址。首页会根据实际访问地址显示可复制的源 URL。
 
 本地初始化示例：
@@ -17,7 +17,7 @@ cd "/Users/jacory/Documents/自建越狱源"
 git init -b main
 git add .
 git commit -m "Initialize roothide APT repository"
-git remote add origin git@github.com:jacoryhub/roothide-repo.git
+git remote add origin git@github.com:jacoryhub/jacoryhub.github.io.git
 git push -u origin main
 ```
 
