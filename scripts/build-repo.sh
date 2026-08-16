@@ -20,8 +20,8 @@ DATE=$(LC_ALL=C date -u '+%a, %d %b %Y %H:%M:%S %z')
 ARCHES=$(awk -F': ' '/^Architecture: / { print $2 }' Packages | sort -u | tr '\n' ' ' | sed 's/[[:space:]]*$//')
 [ -n "$ARCHES" ] || ARCHES=iphoneos-arm64e
 {
-  printf 'Origin: Personal roothide repo\n'
-  printf 'Label: Personal roothide repo\n'
+  printf 'Origin: jacory\n'
+  printf 'Label: jacory\n'
   printf 'Suite: stable\n'
   printf 'Codename: ios\n'
   printf 'Architectures: %s\n' "$ARCHES"

@@ -1,4 +1,4 @@
-# 个人 roothide 越狱源
+# jacory
 
 这是一个可直接部署到 GitHub Pages 的个人 APT 源模板，适合 Sileo、Zebra 等支持 Debian 仓库格式的包管理器。
 

@@ -1,0 +1,9 @@
+{
+  "name": "jacory",
+  "description": "Personal APT repository for iOS 17 roothide/Relaxin",
+  "icon": "https://jacoryhub.github.io/assets/icon.svg",
+  "website": "https://github.com/jacoryhub/jacoryhub.github.io",
+  "maintainer": {
+    "name": "jacory"
+  }
+}
