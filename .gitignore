@@ -1,0 +1,14 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+插件备份/
+
+# Generated APT metadata is rebuilt by CI.
+Packages
+Packages.gz
+Packages.bz2
+Release
+InRelease
+
+# Local build output.
+.build/
