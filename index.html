@@ -3,28 +3,95 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a2f">
   <title>jacory</title>
   <style>
-    :root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; }
-    body { margin: 0; background: #0f141b; color: #e7edf3; }
-    main { max-width: 720px; margin: 0 auto; padding: 12vh 24px; }
-    img { width: 72px; height: 72px; }
-    h1 { margin: 24px 0 12px; font-size: 32px; }
-    p { color: #a9b6c3; line-height: 1.7; }
-    code { padding: 4px 8px; border-radius: 6px; background: #202a35; color: #7ee5cc; word-break: break-all; }
-    .note { margin-top: 32px; padding: 16px; border-left: 3px solid #24c8a5; background: #172029; }
+    :root {
+      color-scheme: dark;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      --ink: #f3f7f5;
+      --muted: #a7b6c8;
+      --night: #101a2f;
+      --night-deep: #0a1020;
+      --mint: #8ce7d0;
+      --coral: #ff7b8b;
+      --yellow: #f6c85f;
+      --line: #2b3a55;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: var(--night-deep); color: var(--ink); }
+    main { width: min(760px, calc(100% - 48px)); margin: 0 auto; padding: 72px 0 64px; }
+    .brand { display: flex; align-items: center; gap: 20px; padding-bottom: 34px; border-bottom: 1px solid var(--line); }
+    .brand img { width: 88px; height: 88px; flex: 0 0 auto; }
+    .eyebrow { margin: 0 0 8px; color: var(--mint); font-size: 13px; font-weight: 700; }
+    h1 { margin: 0; font-size: 46px; line-height: 1; }
+    .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; color: var(--muted); font-size: 14px; }
+    .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px rgba(140, 231, 208, .12); }
+    .intro { max-width: 620px; margin: 32px 0 0; color: var(--muted); font-size: 17px; line-height: 1.75; }
+    .details { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 42px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .detail { padding: 18px 16px 20px 0; }
+    .detail + .detail { padding-left: 16px; border-left: 1px solid var(--line); }
+    .detail b { display: block; margin-bottom: 7px; color: var(--yellow); font-size: 12px; }
+    .detail span { color: var(--ink); font-size: 15px; }
+    .source { margin-top: 38px; }
+    .source-label { display: block; margin-bottom: 10px; color: var(--mint); font-size: 13px; font-weight: 700; }
+    .source-row { display: flex; align-items: center; gap: 12px; min-height: 58px; padding: 8px 10px 8px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--night); }
+    code { color: var(--mint); font: 14px ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+    .copy { flex: 0 0 auto; width: 40px; height: 40px; border: 1px solid #426079; border-radius: 8px; background: transparent; color: var(--ink); font-size: 20px; line-height: 1; cursor: pointer; }
+    .copy:hover, .copy:focus-visible { border-color: var(--mint); color: var(--mint); outline: none; }
+    .hint { margin: 11px 0 0; color: var(--muted); font-size: 13px; }
+    footer { margin-top: 52px; color: #708199; font-size: 12px; }
+    @media (max-width: 560px) {
+      main { width: min(100% - 32px, 760px); padding-top: 44px; }
+      .brand { align-items: flex-start; gap: 15px; }
+      .brand img { width: 68px; height: 68px; }
+      h1 { font-size: 38px; }
+      .details { grid-template-columns: 1fr; }
+      .detail, .detail + .detail { padding: 14px 0; border-left: 0; }
+      .detail + .detail { border-top: 1px solid var(--line); }
+    }
   </style>
 </head>
 <body>
   <main>
-    <img src="assets/icon.svg" alt="仓库图标">
-    <h1>jacory</h1>
-    <p>这是一个面向 iOS 17 roothide 环境的个人 APT 源。将兼容的 Debian 软件包放入 <code>debs/</code> 后推送，索引会由 GitHub Actions 自动生成。</p>
-    <div class="note"><strong>添加源</strong><br><br><code id="source-url">https://USERNAME.github.io/REPOSITORY/</code></div>
+    <header class="brand">
+      <img src="assets/icon.svg" alt="jacory 图标">
+      <div>
+        <p class="eyebrow">PERSONAL APT SOURCE</p>
+        <h1>jacory</h1>
+        <span class="status"><i aria-hidden="true"></i> SOURCE ONLINE</span>
+      </div>
+    </header>
+    <p class="intro">面向 iOS 17 roothide / Relaxin 环境的个人软件源。把兼容的 Debian 软件包放入 <code>debs/</code>，提交后由 GitHub Actions 自动更新索引。</p>
+    <section class="details" aria-label="源信息">
+      <div class="detail"><b>PLATFORM</b><span>iOS 17.0</span></div>
+      <div class="detail"><b>ARCHITECTURE</b><span>iphoneos-arm64e</span></div>
+      <div class="detail"><b>FORMAT</b><span>APT / Debian</span></div>
+    </section>
+    <section class="source">
+      <span class="source-label">ADD THIS SOURCE</span>
+      <div class="source-row">
+        <code id="source-url">https://jacoryhub.github.io/</code>
+        <button class="copy" id="copy-button" type="button" aria-label="复制源地址" title="复制源地址">⧉</button>
+      </div>
+      <p class="hint" id="copy-hint">在 Sileo 或 Zebra 中添加此地址，然后下拉刷新。</p>
+    </section>
+    <footer>jacory · roothide community source</footer>
   </main>
   <script>
-    const path = location.pathname.replace(/\/$/, '');
-    document.getElementById('source-url').textContent = `${location.origin}${path}/`;
+    const sourceUrl = `${location.origin}${location.pathname.replace(/\/$/, '')}/`;
+    const sourceNode = document.getElementById('source-url');
+    const copyButton = document.getElementById('copy-button');
+    const copyHint = document.getElementById('copy-hint');
+    sourceNode.textContent = sourceUrl;
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(sourceUrl);
+        copyHint.textContent = '源地址已复制。';
+      } catch {
+        copyHint.textContent = sourceUrl;
+      }
+    });
   </script>
 </body>
 </html>
